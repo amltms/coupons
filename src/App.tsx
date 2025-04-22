@@ -35,7 +35,7 @@ function App() {
 	return (
 		<div className="min-h-screen bg-gradient-to-br from-pink-50 via-white to-pink-100 p-4">
 			<div className="max-w-xl mx-auto space-y-6">
-				<h1 className="text-4xl font-bold text-center text-rose-800 mb-4">🌸 Rose's Coupons 🌸</h1>
+				<h1 className="text-4xl font-bold text-center text-rose-800 mb-4">🌸 Rose Coupons 🌸</h1>
 
 				<input
 					type="text"

@@ -70,8 +70,8 @@ export default function CouponCard({ coupon, usesLeft, timesUsed, onUse }: Coupo
 				ref={buttonRef}
 				disabled={isDepleted}
 				onClick={handleClick}
-				className={`w-full px-5 py-2 rounded-full text-sm font-medium transition ${
-					isDepleted ? 'bg-gray-300 text-gray-600 cursor-not-allowed' : 'bg-pink-600 text-white hover:brightness-110 cursor-pointer shadow-md'
+				className={`w-32 px-5 py-2 rounded-full text-sm font-medium transition ${
+					isDepleted ? 'bg-gray-300 text-gray-600 cursor-not-allowed' : 'bg-pink-500 text-white hover:brightness-110 cursor-pointer shadow-md'
 				}`}
 			>
 				{isDepleted ? 'Used Up' : 'Use Coupon'}
