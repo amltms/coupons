@@ -5,4 +5,5 @@ export type Coupon = {
 	category: string;
 	unlimited?: boolean;
 	uses?: number; // max uses if not unlimited
+	cooldown?: number; // cooldown time in milliseconds (optional)
 };

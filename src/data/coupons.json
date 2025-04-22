@@ -1,6 +1,12 @@
 [
 	{ "id": 1, "title": "Breakfast in Bed", "description": "A delicious breakfast delivered right to you.", "category": "Food", "uses": 1 },
-	{ "id": 2, "title": "Movie Night", "description": "Pick any movie and we'll watch it together.", "category": "Activities", "unlimited": true },
-	{ "id": 3, "title": "Spa Day", "description": "Relaxing massage and pampering session.", "category": "Wellness", "uses": 3 },
-	{ "id": 4, "title": "Dessert Date", "description": "We'll go get your favourite dessert.", "category": "Food", "uses": 2 }
+	{ "id": 2, "title": "Movie Night", "description": "Pick any movie and we'll watch it together.", "category": "Activities", "unlimited": true, "cooldown": 10000 },
+	{ "id": 3, "title": "Spa Day", "description": "Relaxing massage and pampering session.", "category": "Wellness", "uses": 3, "cooldown": 86400000 },
+	{ "id": 4, "title": "Dessert Date", "description": "We'll go get your favourite dessert.", "category": "Food", "uses": 2, "cooldown": 3600000 },
+	{ "id": 5, "title": "Game Night", "description": "A night of board games and snacks.", "category": "Activities", "uses": 1, "cooldown": 7200000 },
+	{ "id": 6, "title": "Weekend Getaway", "description": "A surprise trip to a nearby destination.", "category": "Travel", "uses": 1, "cooldown": 604800000 },
+	{ "id": 7, "title": "Home Cooked Meal", "description": "I'll cook your favorite meal at home.", "category": "Food", "uses": 2, "cooldown": 43200000 },
+	{ "id": 8, "title": "Picnic in the Park", "description": "A lovely picnic with all your favorite snacks.", "category": "Activities", "uses": 1, "cooldown": 86400000 },
+	{ "id": 9, "title": "Movie Marathon", "description": "We'll binge-watch a series of movies together.", "category": "Activities", "uses": 1, "cooldown": 43200000 },
+	{ "id": 10, "title": "Concert Night", "description": "We'll go to a concert of your choice.", "category": "Activities", "uses": 1, "cooldown": 604800000 }
 ]
