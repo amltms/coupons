@@ -1,6 +1,6 @@
 [
-	{ "id": 1, "title": "Breakfast in Bed", "description": "A delicious breakfast delivered right to you.", "category": "Food" },
-	{ "id": 2, "title": "Movie Night", "description": "Pick any movie and we'll watch it together.", "category": "Activities" },
-	{ "id": 3, "title": "Spa Day", "description": "Relaxing massage and pampering session.", "category": "Wellness" },
-	{ "id": 4, "title": "Dessert Date", "description": "We'll go get your favourite dessert.", "category": "Food" }
+	{ "id": 1, "title": "Breakfast in Bed", "description": "A delicious breakfast delivered right to you.", "category": "Food", "uses": 1 },
+	{ "id": 2, "title": "Movie Night", "description": "Pick any movie and we'll watch it together.", "category": "Activities", "unlimited": true },
+	{ "id": 3, "title": "Spa Day", "description": "Relaxing massage and pampering session.", "category": "Wellness", "uses": 3 },
+	{ "id": 4, "title": "Dessert Date", "description": "We'll go get your favourite dessert.", "category": "Food", "uses": 2 }
 ]

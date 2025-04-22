@@ -4,20 +4,26 @@ import couponsData from './data/coupons.json';
 import { Coupon } from './types/Coupon';
 
 function App() {
-	const [usedCoupons, setUsedCoupons] = useState<number[]>([]);
 	const [searchTerm, setSearchTerm] = useState('');
+	const [couponUses, setCouponUses] = useState<{ [key: number]: number }>({});
 
 	useEffect(() => {
-		const stored = localStorage.getItem('usedCoupons');
-		if (stored) {
-			setUsedCoupons(JSON.parse(stored));
-		}
+		const storedUses = JSON.parse(localStorage.getItem('couponUses') || '{}');
+		setCouponUses(storedUses);
 	}, []);
 
 	const handleUseCoupon = (id: number) => {
-		const updated = [...usedCoupons, id];
-		setUsedCoupons(updated);
-		localStorage.setItem('usedCoupons', JSON.stringify(updated));
+		const coupon = couponsData.find((c) => c.id === id);
+		if (!coupon) return;
+
+		const current = couponUses[id] || 0;
+
+		// If it's not unlimited and reached its limit, do nothing
+		if (!coupon.unlimited && coupon.uses !== undefined && current >= coupon.uses) return;
+
+		const updatedUses = { ...couponUses, [id]: current + 1 };
+		setCouponUses(updatedUses);
+		localStorage.setItem('couponUses', JSON.stringify(updatedUses));
 	};
 
 	const filteredCoupons = couponsData.filter(
@@ -29,7 +35,7 @@ function App() {
 	return (
 		<div className="min-h-screen bg-gradient-to-br from-pink-50 via-white to-pink-100 p-4">
 			<div className="max-w-xl mx-auto space-y-6">
-				<h1 className="text-4xl font-bold text-center text-rose-800 mb-4">🌸 Rose's Birthday Coupons 🎀</h1>
+				<h1 className="text-4xl font-bold text-center text-rose-800 mb-4">🌸 Rose's Coupons 🌸</h1>
 
 				<input
 					type="text"
@@ -46,7 +52,17 @@ function App() {
 							{filteredCoupons
 								.filter((coupon) => coupon.category === category)
 								.map((coupon) => (
-									<CouponCard key={coupon.id} coupon={coupon} isUsed={usedCoupons.includes(coupon.id)} onUse={handleUseCoupon} />
+									<CouponCard
+										key={coupon.id}
+										coupon={coupon}
+										usesLeft={
+											coupon.unlimited
+												? Infinity // unlimited so no upper limit
+												: (coupon.uses || 1) - (couponUses[coupon.id] || 0)
+										}
+										timesUsed={couponUses[coupon.id] || 0} // <- add this
+										onUse={handleUseCoupon}
+									/>
 								))}
 						</div>
 					</div>
